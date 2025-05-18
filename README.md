@@ -24,7 +24,7 @@ Setup Instructions
 
 1. Clone the Repository
 
-   git clone https://github.com/hanaDemma/EDA-week0-.git
+   https://github.com/seid2015a/solar-challenge-week1
 
 2. Create virtual enviroment 
     python -m venv venv
