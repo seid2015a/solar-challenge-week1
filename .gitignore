@@ -1,7 +1,1 @@
-echo "data/
-*.csv
-.ipynb_checkpoints/
-__pycache__/
-*.py[cod]
-*.DS_Store
-venv/" 
+"data/*.csv.ipynb_checkpoints/__pycache__/*.py[cod]*.DS_Storevenv/" 
