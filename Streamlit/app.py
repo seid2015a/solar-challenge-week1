@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import gdown 
 
 # Set Streamlit page configuration
 st.set_page_config(page_title="Simple Dashboard", layout="wide")
@@ -11,23 +12,32 @@ with st.sidebar:
 
 # Main Title
 st.title("Streamlit Dashboard")
+togo= "https://drive.google.com/file/d/1LcaKQPMLsdubohoaALe26PwhXdU3Bjr8/view?usp=drive_link"
+benin = "https://drive.google.com/file/d/1XK-J9gapOFsqqhjp8zxr-8cuqQ-YWuf9/view?usp=drive_link"
+seralion = "https://drive.google.com/file/d/1hap-TpUy0b8PHPBDRjQogvVy89_fEO-S/view?usp=sharing"
+
+togo_dapaong_qc=f"https://drive.google.com/uc?id={togo.split('/')[-2]}"
+benin_malanvile=f"https://drive.google.com/uc?id={benin.split('/')[-2]}"
+sierraleon_bumbana=f"https://drive.google.com/uc?id={seralion.split('/')[-2]}"
+
 
 # File uploader (accessible in all options)
-uploaded_file = st.file_uploader("Choose a CSV file to upload", type="csv")
+#uploaded_file = st.file_uploader("Choose a CSV file to upload", type="csv")
+file= st.radio("choose a csv file found in drive:",[benin_malanvile,sierraleon_bumbana,togo_dapaong_qc])
+uploaded_file="uploaded_file.csv"
 
-# Option 1: Upload CSV and Plot Data
+# Option 1: Download CSV and Plot Data
 if selected_option == "Data Upload":
-    st.header("Upload CSV and Plot Data")
-
+    st.header("Download CSV and Plot Data")
     if uploaded_file is not None:
         # Load the CSV file into a DataFrame
         data = pd.read_csv(uploaded_file)
 
         # Display the first 5 rows of the DataFrame (preview first 19 columns)
-        st.subheader("Uploaded Data Preview")
+        st.subheader("Downloaded Data Preview")
         st.write(data.iloc[:5, :19])  # Select first 5 rows and up to 19 columns
     else:
-        st.warning("Please upload a CSV file to display the data.")
+        st.warning("Please Download a CSV file to display the data.")
 
 # Option 2: Monthly trends
 elif selected_option == "Monthly trends":
@@ -62,7 +72,7 @@ elif selected_option == "Monthly trends":
         else:
             st.warning("The CSV file is missing necessary columns: 'GHI', 'DNI', 'DHI', or 'Tamb'.")
     else:
-        st.warning("Please upload a CSV file to view the monthly trends plot.")
+        st.warning("Please Download a CSV file to view the monthly trends plot.")
 
 # Option 3: Display Hourly Averages
 elif selected_option == "Display Hourly Averages":
@@ -97,7 +107,7 @@ elif selected_option == "Display Hourly Averages":
         else:
             st.warning("The CSV file is missing necessary columns: 'GHI', 'DNI', 'DHI', or 'Tamb'.")
     else:
-        st.warning("Please upload a CSV file to view the hourly averages plot.")
+        st.warning("Please Download a CSV file to view the hourly averages plot.")
 
 # Option 4: Sensor Reading
 elif selected_option == "Sensor Reading":
@@ -139,7 +149,7 @@ elif selected_option == "Sensor Reading":
         else:
             st.warning("The CSV file is missing necessary columns: 'ModA', 'ModB', or 'Cleaning'.")
     else:
-        st.warning("Please upload a CSV file to view the sensor readings plot.")
+        st.warning("Please Download a CSV file to view the sensor readings plot.")
 
 # Option 5: Correlation matrix for solar radiation and temperature
 elif selected_option == "Correlation matrix for solar radiation and temperature":
@@ -166,7 +176,7 @@ elif selected_option == "Correlation matrix for solar radiation and temperature"
         else:
             st.warning("The CSV file is missing necessary columns: 'GHI', 'DNI', 'DHI', 'TModA', or 'TModB'.")
     else:
-        st.warning("Please upload a CSV file to view the correlation matrix.")
+        st.warning("Please Download a CSV file to view the correlation matrix.")
     
     # Option 6: Wind Direction Distribution
 elif selected_option == "Wind Direction Distribution":
@@ -208,7 +218,7 @@ elif selected_option == "Wind Direction Distribution":
         else:
             st.warning("The CSV file is missing necessary columns: 'WD' (Wind Direction) or 'WS' (Wind Speed).")
     else:
-        st.warning("Please upload a CSV file to view the wind direction distribution.")
+        st.warning("Please Download a CSV file to view the wind direction distribution.")
 
    # Option 7: Wind Speed Distribution
 elif selected_option == "Wind Speed Distribution":
@@ -246,4 +256,6 @@ elif selected_option == "Wind Speed Distribution":
         else:
             st.warning("The CSV file is missing the necessary column: 'WS' (Wind Speed).")
     else:
-        st.warning("Please upload a CSV file to view the wind speed distribution.")
+        st.warning("Please Download a CSV file to view the wind speed distribution.")
+        
+        
