@@ -12,6 +12,8 @@ with st.sidebar:
 
 # Main Title
 st.title("Streamlit Dashboard")
+
+# drive location of csv files
 togo= "https://drive.google.com/file/d/1LcaKQPMLsdubohoaALe26PwhXdU3Bjr8/view?usp=drive_link"
 benin = "https://drive.google.com/file/d/1XK-J9gapOFsqqhjp8zxr-8cuqQ-YWuf9/view?usp=drive_link"
 seralion = "https://drive.google.com/file/d/1hap-TpUy0b8PHPBDRjQogvVy89_fEO-S/view?usp=sharing"
@@ -25,6 +27,7 @@ sierraleon_bumbana=f"https://drive.google.com/uc?id={seralion.split('/')[-2]}"
 #uploaded_file = st.file_uploader("Choose a CSV file to upload", type="csv")
 file= st.radio("choose a csv file found in drive:",[benin_malanvile,sierraleon_bumbana,togo_dapaong_qc])
 uploaded_file="uploaded_file.csv"
+gdown.download(file,uploaded_file,quiet=False)
 
 # Option 1: Download CSV and Plot Data
 if selected_option == "Data Upload":
